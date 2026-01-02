@@ -852,9 +852,12 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer-links a {
@@ -862,11 +865,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: 500;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
         }
 
         .footer-links a::before {
@@ -1104,7 +1108,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 10rem 5% 2rem;
+                padding: 5rem 5% 2rem;
                 min-height: auto;
             }
 
@@ -1179,13 +1183,15 @@
             }
 
             .footer-links {
-                gap: 1.5rem;
-                margin-bottom: 2.5rem;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                max-width: 100%;
             }
 
             .footer-links a {
-                font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+                padding: 0.3rem 0.6rem;
+                border-radius: 15px;
             }
 
             .cta-buttons {
