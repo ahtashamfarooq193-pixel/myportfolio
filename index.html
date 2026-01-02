@@ -683,20 +683,20 @@
             setTimeout(typeWriter, 1000);
         }
 
-        // Particle effect for the footer
-        function createParticles() {
-            const footer = document.querySelector('footer');
-            if (!footer) return;
+        // Subtle background particles across the entire page
+        function createBackgroundParticles() {
+            const body = document.body;
+            if (!body) return;
 
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 12; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'footer-particle';
-                const size = Math.random() * 6 + 2; // Random size between 2-8px
-                const opacity = Math.random() * 0.6 + 0.2; // Random opacity between 0.2-0.8
-                const duration = Math.random() * 20 + 15; // Random duration between 15-35s
+                particle.className = 'bg-particle';
+                const size = Math.random() * 4 + 1; // Random size between 1-5px (smaller)
+                const opacity = Math.random() * 0.3 + 0.1; // Random opacity between 0.1-0.4 (more subtle)
+                const duration = Math.random() * 40 + 30; // Random duration between 30-70s (slower)
 
                 particle.style.cssText = `
-                    position: absolute;
+                    position: fixed;
                     width: ${size}px;
                     height: ${size}px;
                     background: linear-gradient(135deg, rgba(102, 126, 234, ${opacity}), rgba(118, 75, 162, ${opacity}));
@@ -706,38 +706,38 @@
                     left: ${Math.random() * 100}%;
                     top: ${Math.random() * 100}%;
                     animation-delay: ${Math.random() * duration}s;
-                    box-shadow: 0 0 ${size * 2}px rgba(102, 126, 234, ${opacity * 0.5});
+                    z-index: -1;
                 `;
-                footer.appendChild(particle);
+                body.appendChild(particle);
             }
         }
 
-        // Initialize particles
-        createParticles();
+        // Initialize background particles
+        createBackgroundParticles();
 
-        // Add some CSS for the footer particles
+        // Add some CSS for the background particles
         const style = document.createElement('style');
         style.textContent = `
-            .footer-particle {
-                z-index: 1;
+            .bg-particle {
+                z-index: -1;
             }
 
             @keyframes floatParticles {
                 0%, 100% {
                     transform: translateY(0px) translateX(0px) scale(1);
-                    opacity: 0.3;
+                    opacity: 0.1;
                 }
                 25% {
-                    transform: translateY(-30px) translateX(10px) scale(1.2);
-                    opacity: 0.8;
+                    transform: translateY(-20px) translateX(8px) scale(1.1);
+                    opacity: 0.3;
                 }
                 50% {
-                    transform: translateY(-60px) translateX(-10px) scale(0.8);
-                    opacity: 0.5;
+                    transform: translateY(-40px) translateX(-6px) scale(0.9);
+                    opacity: 0.2;
                 }
                 75% {
-                    transform: translateY(-30px) translateX(5px) scale(1.1);
-                    opacity: 0.7;
+                    transform: translateY(-20px) translateX(4px) scale(1.05);
+                    opacity: 0.25;
                 }
             }
 
