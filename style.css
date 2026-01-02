@@ -1199,3 +1199,114 @@
             }
         }
   
+        @keyframes shimmer {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 5% 2rem;
+                min-height: auto;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-image {
+                flex: 0 0 300px;
+            }
+
+            .profile-image-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem 0;
+                border-radius: 0 0 15px 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                display: none;
+                z-index: 999;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline {
+                padding-left: 30px;
+            }
+
+            .footer-links {
+                gap: 1rem;
+                margin-bottom: 2rem;
+                max-width: 100%;
+            }
+
+            .footer-links a {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.6rem;
+                border-radius: 15px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+  

@@ -725,7 +725,7 @@
             .footer-bg-shape {
                 position: absolute;
                 border-radius: 50%;
-                opacity: 0.015;
+                opacity: 0.05;
                 animation: pulse 8s ease-in-out infinite;
             }
 
@@ -784,6 +784,39 @@
                 bottom: 30%;
                 left: 20%;
                 animation-delay: 4s;
+                font-size: 1.8rem;
+            }
+
+            .decoration4 {
+                bottom: 20%;
+                right: 10%;
+                animation-delay: 6s;
+                font-size: 1.3rem;
+            }
+
+            @keyframes floatDecorations {
+                0%, 100% {
+                    transform: translateY(0px) rotate(0deg);
+                    opacity: 0.1;
+                }
+                25% {
+                    transform: translateY(-15px) rotate(90deg);
+                    opacity: 0.15;
+                }
+                50% {
+                    transform: translateY(-30px) rotate(180deg);
+                    opacity: 0.1;
+                }
+                75% {
+                    transform: translateY(-15px) rotate(270deg);
+                    opacity: 0.15;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
                 font-size: 1.8rem;
             }
 
