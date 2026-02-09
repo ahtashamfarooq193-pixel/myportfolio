@@ -119,14 +119,9 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2024 Ahtasham Farooq. All rights reserved.</p>
-
             </div>
         </div>
 
-        <!-- Animated background elements -->
-        <div class="footer-bg-shape shape1"></div>
-        <div class="footer-bg-shape shape2"></div>
-        <div class="footer-bg-shape shape3"></div>
 
         <!-- Decorative floating elements -->
         <div class="footer-decoration decoration1">✨</div>
@@ -192,6 +187,19 @@
             });
         });
 
+        // Add click animation to social icons
+        document.querySelectorAll('.footer-social a').forEach(icon => {
+            icon.addEventListener('click', function (e) {
+                // Add click animation class
+                this.classList.add('social-click');
+
+                // Remove the class after animation completes
+                setTimeout(() => {
+                    this.classList.remove('social-click');
+                }, 300);
+            });
+        });
+
         // Typing animation for the hero subtitle
         const heroSubtitle = document.querySelector('.hero .subtitle');
         if (heroSubtitle) {
@@ -211,73 +219,62 @@
             setTimeout(typeWriter, 1000);
         }
 
-        // Particle effect for the footer
-        function createParticles() {
-            const footer = document.querySelector('footer');
-            if (!footer) return;
+        // Subtle background particles across the entire page
+        function createBackgroundParticles() {
+            const body = document.body;
+            if (!body) return;
 
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 7; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'footer-particle';
+                particle.className = 'bg-particle';
+                const size = Math.random() * 6 + 3; // Random size between 3-9px (more visible)
+                const opacity = Math.random() * 0.4 + 0.2; // Random opacity between 0.2-0.6 (more visible)
+                const duration = Math.random() * 40 + 30; // Random duration between 30-70s (slower)
+
                 particle.style.cssText = `
-                    
-                    position: absolute;
-                    width: 4px;
-                    height: 4px;
-                    background: rgba(74, 85, 104, 0.2);
+                    position: fixed;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: linear-gradient(135deg, rgba(102, 126, 234, ${opacity}), rgba(118, 75, 162, ${opacity}));
                     border-radius: 50%;
                     pointer-events: none;
-                    animation: float 15s infinite linear;
+                    animation: floatParticles ${duration}s infinite ease-in-out;
                     left: ${Math.random() * 100}%;
                     top: ${Math.random() * 100}%;
-                    animation-delay: ${Math.random() * 15}s;
+                    animation-delay: ${Math.random() * duration}s;
+                    z-index: -1;
                 `;
-                footer.appendChild(particle);
+                body.appendChild(particle);
             }
         }
 
-        // Initialize particles
-        createParticles();
+        // Initialize background particles
+        createBackgroundParticles();
 
-        // Add some CSS for the footer particles
+        // Add some CSS for the background particles
         const style = document.createElement('style');
         style.textContent = `
-            .footer-particle {
-                animation: float 15s infinite linear;
+            .bg-particle {
+                z-index: -1;
             }
 
-            .footer-bg-shape {
-                position: absolute;
-                border-radius: 50%;
-                opacity: 0.05;
-                animation: pulse 8s ease-in-out infinite;
-            }
-
-            .footer-bg-shape.shape1 {
-                width: 200px;
-                height: 200px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                top: 10%;
-                left: 10%;
-                animation-delay: 0s;
-            }
-
-            .footer-bg-shape.shape2 {
-                width: 150px;
-                height: 150px;
-                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-                bottom: 20%;
-                right: 15%;
-                animation-delay: 4s;
-            }
-
-            .footer-bg-shape.shape3 {
-                width: 125px;
-                height: 125px;
-                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-                top: 60%;
-                right: 5%;
-                animation-delay: 8s;
+            @keyframes floatParticles {
+                0%, 100% {
+                    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+                    opacity: 0.2;
+                }
+                25% {
+                    transform: translateY(-35px) translateX(18px) scale(1.3) rotate(90deg);
+                    opacity: 0.6;
+                }
+                50% {
+                    transform: translateY(-70px) translateX(-12px) scale(0.7) rotate(180deg);
+                    opacity: 0.3;
+                }
+                75% {
+                    transform: translateY(-35px) translateX(9px) scale(1.2) rotate(270deg);
+                    opacity: 0.5;
+                }
             }
 
             .footer-decoration {
