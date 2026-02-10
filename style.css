@@ -1141,14 +1141,15 @@ footer::before {
 
 @media (max-width: 768px) {
     .hero {
-        padding: 3rem 5% 2rem;
-        min-height: auto;
+        padding: 120px 5% 40px !important;
+        min-height: auto !important;
+        background: #0f172a !important;
     }
 
-    /* Standardize spacing for sub-pages on mobile */
     .sub-page-hero {
-        padding-top: 80px !important;
+        padding-top: 100px !important;
         min-height: auto !important;
+        background: #0f172a;
     }
 
     .hero-content {
@@ -1173,29 +1174,43 @@ footer::before {
         font-size: 1.3rem;
     }
 
+    nav {
+        padding: 0.8rem 5% !important;
+        background: #0f172a !important;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .hamburger {
         display: flex;
+        z-index: 1001;
+        /* Above sidebar */
     }
 
     .nav-links {
         gap: 0.1rem;
         flex-direction: column;
         position: fixed;
-        top: 80px;
+        top: 0;
+        /* Align with top of screen */
         right: -100%;
-        width: auto;
-        min-width: 120px;
-        height: fit-content;
-        max-height: 80vh;
+        width: 70%;
+        /* Better width coverage */
+        min-width: 200px;
+        height: 100vh;
+        /* Full height sidebar */
         background: rgba(15, 23, 42, 0.98);
         backdrop-filter: blur(20px);
         padding: 0.8rem;
         z-index: 999;
         transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px 0 0 15px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0;
         display: flex;
+        padding-top: 80px;
+        /* Space for the logo/hamburger area */
     }
 
     .nav-links.show {
