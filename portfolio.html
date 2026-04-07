@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahtasham Farooq - Software Engineer</title>
+    <link rel="icon" type="image/png" href="public/logo.png">
     <style>
         * {
             margin: 0;
@@ -38,13 +39,29 @@
             padding: 1rem 5%;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .nav-logo {
+            height: 42px;
+            width: 42px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .logo-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-size: 1.6rem;
+            font-weight: bold;
         }
 
         .nav-links {
@@ -811,12 +828,27 @@
         }
 
         .footer-logo {
-            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 2.5rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .footer-logo-img {
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
         }
 
         .footer-tagline {
@@ -1035,7 +1067,12 @@
     <a href="#home" class="back-to-top" id="backToTop">↑</a>
 
     <nav id="navbar">
-        <div class="logo">Ahtasham.dev</div>
+        <div class="logo">
+            <a href="index.html#home">
+                <img src="public/logo.png" alt="Logo" class="nav-logo">
+                <span class="logo-text">Ahtasham.dev</span>
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
