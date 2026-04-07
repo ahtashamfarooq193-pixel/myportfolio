@@ -223,18 +223,28 @@ nav.scrolled {
     padding: 1rem 5%;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
 }
 
-.logo a {
+.nav-logo {
+    height: 42px;
+    width: 42px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+}
+
+.logo-text {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-decoration: none;
-    transition: opacity 0.25s ease;
+    font-size: 1.6rem;
 }
 
 .logo a:hover {
@@ -1154,6 +1164,10 @@ footer::before {
 }
 
 .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     font-size: 2.5rem;
     font-weight: bold;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
@@ -1162,8 +1176,15 @@ footer::before {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
 }
 
 .footer-tagline {
