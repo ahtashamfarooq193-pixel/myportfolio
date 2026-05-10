@@ -1642,3 +1642,87 @@ footer::before {
         justify-content: center;
     }
 }
+
+/* —— Dedicated Projects Page Styles —— */
+
+.projects-hero {
+    min-height: 50vh;
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center .tagline {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 50px;
+    color: #94a3b8;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.filter-btn:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: #38bdf8;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.2);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+}
+
+.projects-full {
+    padding-bottom: 8rem;
+}
+
+#projects-grid {
+    transition: opacity 0.4s ease;
+}
+
+.project-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .projects-hero {
+        padding-top: 8rem;
+    }
+    
+    .filter-container {
+        gap: 0.6rem;
+    }
+    
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
