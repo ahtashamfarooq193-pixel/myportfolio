@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* —— Animated ambient background (same palette: slate + violet) —— */
+/* —— Animated ambient background (sky blue palette) —— */
 .ambient-bg {
     position: fixed;
     inset: 0;
@@ -486,7 +486,7 @@ nav.scrolled {
 .shape2 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
     bottom: 15%;
     right: 15%;
     animation-delay: 5s;
@@ -495,7 +495,7 @@ nav.scrolled {
 .shape3 {
     width: 250px;
     height: 250px;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
     top: 50%;
     right: 5%;
     animation-delay: 10s;
@@ -1268,7 +1268,7 @@ footer::before {
     gap: 12px;
     font-size: 2.5rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #f093fb 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0ea5e9 100%);
     background-size: 200% 200%;
     animation: gradientShift 4s ease infinite;
     -webkit-background-clip: text;
@@ -1767,7 +1767,7 @@ footer::before {
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
     color: white;
     border: none;
     box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
