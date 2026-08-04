@@ -32,10 +32,22 @@ A modern, responsive portfolio website showcasing my skills as a Software Engine
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/portfolio-website.git
+git clone https://github.com/ahtashamfarooq193-pixel/myportfolio.git
 ```
 
-2. Open `index.html` in your browser
+2. Serve the folder (the pages are plain static HTML):
+```bash
+python -m http.server 8080
+```
+
+3. Open http://localhost:8080 in your browser
+
+## Images
+
+Images in `public/` are WebP, sized for how they actually render — card
+thumbnails are capped at 1000px wide and the full-page screenshots are cropped
+to the top of the page. Keep new additions in the same shape; dropping in a
+multi-megabyte PNG is what the whole folder used to be.
 
 ## Contact
 
@@ -46,4 +58,4 @@ git clone https://github.com/yourusername/portfolio-website.git
 
 ---
 
-© 2024 Ahtasham Farooq. All rights reserved.
+© 2026 Ahtasham Farooq. All rights reserved.

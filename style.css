@@ -1,3 +1,9 @@
+:root {
+    /* Swap these two lines to restyle the whole site's type. */
+    --font-heading: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +16,28 @@ html {
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-body);
     background: #000000;
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
     position: relative;
+    /* light-on-dark text renders too heavy without this */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+/* Space Grotesk needs more air pulled out at display sizes; 1.15 keeps the
+   gradient text-clip from cutting descenders the way a tighter value does. */
+h1 {
+    letter-spacing: -0.035em;
+    line-height: 1.15;
 }
 
 /* —— Animated ambient background (sky blue palette) —— */
@@ -105,68 +123,33 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* —— ✨ SIMPLE YET STYLISH CURSOR BUBBLES —— */
-
-/* Base bubble particle */
-.magic-sparkle {
+/* —— Cursor glow ——
+   One element that follows the pointer, moved on requestAnimationFrame.
+   Replaces the old per-move bubble particles, which created and destroyed
+   up to 80 DOM nodes at a time. */
+.cursor-glow {
     position: fixed;
     left: 0;
     top: 0;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    --bx: 0px;
-    --by: -60px;
-    --rot: 0deg;
-    animation: bubbleLife 1.2s ease-out forwards;
-    will-change: transform, opacity;
-}
-
-/* Stylish Gradient Orb */
-.magic-circle {
+    width: 420px;
+    height: 420px;
     border-radius: 50%;
-    border: 0.5px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
+    pointer-events: none;
+    /* 0 keeps it on the background layer with the ambient blobs -- sections sit
+       at z-index 1, so the glow tints the backdrop rather than the text. */
+    z-index: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+    background: radial-gradient(circle,
+            rgba(56, 189, 248, 0.13) 0%,
+            rgba(2, 132, 199, 0.07) 40%,
+            transparent 68%);
+    will-change: transform;
 }
 
-@keyframes bubbleLife {
-    0% {
-        transform: translate(-50%, -50%) translate(0, 0) scale(0.2);
-        opacity: 0;
-    }
-    15% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) translate(0, 0) scale(1);
-    }
-    100% {
-        transform: translate(-50%, -50%) translate(var(--bx), var(--by)) scale(0.3);
-        opacity: 0;
-    }
-}
-
-.magic-star,
-.magic-diamond {
-    overflow: visible;
-}
-
-/* Floating bubble animation — rises and fades with squish */
-@keyframes magicSparkleFloat {
-    0% {
-        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
-        opacity: 1;
-    }
-    20% {
-        opacity: 1;
-        transform: translate(-50%, -50%) translate(calc(var(--bx)*0.2), calc(var(--by)*0.2)) rotate(calc(var(--rot)*0.2)) scale(1.15);
-    }
-    60% {
-        opacity: 0.75;
-    }
-    100% {
-        transform: translate(-50%, -50%) translate(var(--bx), var(--by)) rotate(var(--rot)) scale(0.04);
-        opacity: 0;
-    }
+.cursor-glow.is-active {
+    opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -174,14 +157,12 @@ h1, h2, h3, h4, h5, h6 {
     .ambient-bg__grid {
         animation: none !important;
     }
-    .magic-sparkle,
     .cursor-glow {
         display: none !important;
     }
 }
 
 @media (hover: none), (pointer: coarse) {
-    .magic-sparkle,
     .cursor-glow {
         display: none !important;
     }
@@ -191,8 +172,16 @@ h1, h2, h3, h4, h5, h6 {
 .reveal {
     opacity: 0;
     transform: translateY(30px) scale(0.97);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    /* --reveal-delay is set per element by JS so items in a row arrive one
+       after another instead of all at once. */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+/* Only hint the compositor while an element is actually moving -- keeping
+   will-change on permanently pins every card to its own layer for the whole
+   page life. JS adds this class just before the reveal and drops it after. */
+.reveal.is-animating {
     will-change: transform, opacity;
 }
 
@@ -282,6 +271,20 @@ nav.scrolled {
     cursor: pointer;
     gap: 4px;
     padding: 0.5rem;
+    background: none;
+    border: 0;
+    color: inherit;
+}
+
+.hamburger:focus-visible,
+.back-to-top:focus-visible,
+.nav-link:focus-visible,
+.project-link:focus-visible,
+.cta-button:focus-visible,
+.filter-btn:focus-visible,
+.submit-btn:focus-visible {
+    outline: 2px solid #38bdf8;
+    outline-offset: 3px;
 }
 
 .hamburger span {
@@ -370,11 +373,40 @@ nav.scrolled {
 }
 
 .hero .subtitle {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1.8rem;
     color: #ffffff;
     margin-bottom: 1rem;
     font-weight: 500;
+    /* hold the line's height up front so the rotating word can't shove the
+       tagline and buttons around as it types */
+    min-height: 1.3em;
+}
+
+.subtitle .rotator {
+    color: #38bdf8;
+}
+
+.subtitle .caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: #38bdf8;
+    margin-left: 3px;
+    vertical-align: -0.14em;
+    animation: caretBlink 1s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .subtitle .caret {
+        display: none;
+    }
 }
 
 .hero .tagline {
@@ -516,7 +548,7 @@ section {
     text-align: center;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-heading);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -856,8 +888,20 @@ section {
     position: relative;
 }
 
+/* Filter states. These are classes rather than inline styles so that a filtered
+   card keeps a plain `transform` and the :hover rule below still wins. */
+.project-card.is-hiding {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.project-card.is-hidden {
+    display: none;
+}
+
 .project-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-15px) scale(1.02);
     box-shadow: 0 30px 60px rgba(56, 189, 248, 0.35);
     border-color: rgba(56, 189, 248, 0.5);
 }
@@ -1429,18 +1473,6 @@ footer::before {
     box-shadow: 0 10px 30px rgba(56, 189, 248, 0.5);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -1477,40 +1509,6 @@ footer::before {
     }
 }
 
-@keyframes gentleRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(2deg);
-    }
-
-    50% {
-        transform: rotate(0deg);
-    }
-
-    75% {
-        transform: rotate(-2deg);
-    }
-
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes subtleScale {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.02);
-    }
-}
-
 @keyframes pulse {
 
     0%,
@@ -1522,20 +1520,6 @@ footer::before {
     50% {
         transform: scale(1.1);
         opacity: 0.8;
-    }
-}
-
-@keyframes glowRotate {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    50% {
-        transform: rotate(180deg) scale(1.1);
-    }
-
-    100% {
-        transform: rotate(360deg) scale(1);
     }
 }
 

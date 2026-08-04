@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Windows
+desktop.ini
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Editors
+.idea/
+*.swp
+
+# Vercel
+.vercel

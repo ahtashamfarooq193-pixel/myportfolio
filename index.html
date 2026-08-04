@@ -7,10 +7,27 @@
     <title>Ahtasham Farooq - Software Engineer</title>
     <meta name="description"
         content="Ahtasham Farooq - Experienced Software Engineer specializing in modern web and mobile technologies. View my portfolio and projects.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ahtasham Farooq - Software Engineer">
+    <meta property="og:description"
+        content="Software Engineer building web, mobile and WordPress solutions. See my work and get in touch.">
+    <meta property="og:image" content="public/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Ahtasham.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahtasham Farooq - Software Engineer">
+    <meta name="twitter:description"
+        content="Software Engineer building web, mobile and WordPress solutions. See my work and get in touch.">
+    <meta name="twitter:image" content="public/og-image.jpg">
+    <meta name="theme-color" content="#0b1120">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="public/new_logo.png?v=2">
     <link rel="apple-touch-icon" href="public/new_logo.png?v=2">
@@ -23,20 +40,22 @@
         <div class="ambient-bg__blob ambient-bg__blob--3"></div>
         <div class="ambient-bg__grid"></div>
     </div>
-    <a href="#home" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"
+            aria-hidden="true"></i></a>
 
     <nav id="navbar">
         <div class="logo">
             <a href="#home">
-                <img src="public/new_logo.png" alt="Logo" class="nav-logo">
+                <img width="256" height="256" src="public/new_logo.png" alt="Logo" class="nav-logo">
                 <span class="logo-text">Ahtasham.dev</span>
             </a>
         </div>
-        <div class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false"
+            aria-controls="nav-links">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
         <ul class="nav-links" id="nav-links">
             <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
             <li><a href="#about" class="nav-link" data-section="about">About</a></li>
@@ -60,7 +79,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-side-image-container">
-                    <img src="public/shamii ch.png" alt="Ahtasham Farooq" class="hero-side-image" loading="eager">
+                    <img width="833" height="1308" src="public/shamii-ch.webp" alt="Ahtasham Farooq" class="hero-side-image" loading="eager">
                 </div>
             </div>
         </div>
@@ -180,12 +199,10 @@
             <div class="project-card reveal">
                 <div class="project-image">
                     <div class="project-overlay">
-                        <a href="https://www.briefbox.me/" target="_blank" rel="noopener noreferrer"
-                            class="project-link"><i class="fas fa-external-link-alt"></i></a>
-                        <a href="https://www.briefbox.me/" target="_blank" rel="noopener noreferrer"
-                            class="project-link"><i class="fas fa-eye"></i></a>
+                        <a aria-label="Open Briefbox - Design Education Platform" href="https://www.briefbox.me/" target="_blank" rel="noopener noreferrer"
+                            class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                     </div>
-                    <img src="public/briefbox.jpeg" alt="Task Management System" class="project-image-bg"
+                    <img width="1000" height="642" src="public/briefbox.webp" alt="Briefbox - Design Education Platform" class="project-image-bg"
                         loading="lazy">
                 </div>
                 <div class="project-content">
@@ -203,11 +220,11 @@
             <div class="project-card reveal">
                 <div class="project-image">
                     <div class="project-overlay">
-                        <a href="https://play.google.com/store/apps/details?id=com.rydeit.app&hl=en&gl=US"
+                        <a aria-label="Open RydeIt - Ride Sharing App" href="https://play.google.com/store/apps/details?id=com.rydeit.app&hl=en&gl=US"
                             target="_blank" rel="noopener noreferrer" class="project-link"><i
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <img src="public/Rydeit.jpeg" alt="RydeIt - Ride Sharing App" class="project-image-bg"
+                    <img width="720" height="1292" src="public/Rydeit.webp" alt="RydeIt - Ride Sharing App" class="project-image-bg"
                         loading="lazy">
                 </div>
                 <div class="project-content">
@@ -225,10 +242,10 @@
             <div class="project-card reveal">
                 <div class="project-image">
                     <div class="project-overlay">
-                        <a href="https://apps.apple.com/pk/app/firetexts-ai-text-messages/id6447702159" target="_blank"
-                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a aria-label="Open FireTexts AI - Text Messages" href="https://apps.apple.com/pk/app/firetexts-ai-text-messages/id6447702159" target="_blank"
+                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                     </div>
-                    <img src="public/firetext.jpeg" alt="FireTexts AI - Text Messages" class="project-image-bg"
+                    <img width="600" height="1298" src="public/firetext.webp" alt="FireTexts AI - Text Messages" class="project-image-bg"
                         loading="lazy">
                 </div>
                 <div class="project-content">
@@ -245,10 +262,10 @@
             <div class="project-card reveal">
                 <div class="project-image">
                     <div class="project-overlay">
-                        <a href="https://www.innovativeaillc.com/" target="_blank" rel="noopener noreferrer"
-                            class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a aria-label="Open Innovative AI LLC" href="https://www.innovativeaillc.com/" target="_blank" rel="noopener noreferrer"
+                            class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
                     </div>
-                    <img src="public/innovativeai.jpg" alt="Innovative AI" class="project-image-bg"
+                    <img width="828" height="671" src="public/innovativeai.webp" alt="Innovative AI" class="project-image-bg"
                         loading="lazy">
                 </div>
                 <div class="project-content">
@@ -265,10 +282,10 @@
             <div class="project-card reveal">
                 <div class="project-image">
                     <div class="project-overlay">
-                        <a href="https://lejou-medical.com/" target="_blank" rel="noopener noreferrer" class="project-link"><i
+                        <a aria-label="Open Lejou Medical - Hair Treatments" href="https://lejou-medical.com/" target="_blank" rel="noopener noreferrer" class="project-link"><i
                                 class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <img src="public/lejou_medical.png" alt="Lejou Medical" class="project-image-bg"
+                    <img width="1000" height="740" src="public/lejou_medical.webp" alt="Lejou Medical" class="project-image-bg"
                         loading="lazy">
                 </div>
                 <div class="project-content">
@@ -362,7 +379,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="public/new_logo.png" alt="Logo" class="footer-logo-img">
+                <img width="256" height="256" src="public/new_logo.png" alt="Logo" class="footer-logo-img">
                 Ahtasham.dev
             </div>
             <p class="footer-tagline">Building the future, one line of code at a time.</p>
@@ -385,17 +402,10 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 Ahtasham Farooq. All rights reserved.</p>
+                <p>&copy; <span id="year">2026</span> Ahtasham Farooq. All rights reserved.</p>
 
             </div>
         </div>
-
-
-        <!-- Decorative floating elements -->
-        <div class="footer-decoration decoration1">✨</div>
-        <div class="footer-decoration decoration2">💫</div>
-        <div class="footer-decoration decoration3">🌟</div>
-        <div class="footer-decoration decoration4">⚡</div>
     </footer>
 
     <script>
@@ -403,132 +413,114 @@
             const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-            // --- ✨ SIMPLE BUT STYLISH CURSOR BUBBLES ---
-            var lastMX = -1, lastMY = -1;
-            var lastSparkAt = 0, lastSparkX = 0, lastSparkY = 0;
-            var sparkCount = 0, maxSparks = 80;
+            // --- Cursor glow: one element, moved on rAF ---
+            var ambient = document.querySelector('.ambient-bg');
 
-            var cursorGlow = null;
-
-            // Simple, elegant palette: Sky blue and white
-            var colorPalettes = [
-                { r: '56, 189, 248', glow: 'rgba(56, 189, 248, 0.4)' },  // Sky blue
-                { r: '2, 132, 199',  glow: 'rgba(2, 132, 199, 0.4)' },   // Deep blue
-                { r: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.3)' } // White
-            ];
-
-            function spawnBubble(x, y, vel) {
-                var n = vel > 30 ? 2 : 1; 
-                if (sparkCount >= maxSparks) return;
-
-                for (var i = 0; i < n; i++) {
-                    var col = colorPalettes[Math.floor(Math.random() * colorPalettes.length)];
-                    var size = 4 + Math.random() * 6;
-                    var jitter = 8;
-                    
-                    var el = document.createElement('div');
-                    el.className = 'magic-sparkle magic-circle';
-                    el.style.width = size + 'px';
-                    el.style.height = size + 'px';
-                    
-                    // Glassy gradient
-                    el.style.background = `radial-gradient(circle at 30% 30%, 
-                        rgba(255, 255, 255, 0.8) 0%, 
-                        rgba(${col.r}, 0.4) 40%, 
-                        rgba(${col.r}, 0.1) 80%)`;
-                    el.style.boxShadow = `0 0 6px ${col.glow}`;
-
-                    // Random position near cursor
-                    el.style.left = (x + (Math.random() - 0.5) * jitter) + 'px';
-                    el.style.top = (y + (Math.random() - 0.5) * jitter) + 'px';
-
-                    // Slow upward movement
-                    var tx = (Math.random() - 0.5) * 40;
-                    var ty = -50 - Math.random() * 50;
-                    el.style.setProperty('--bx', tx + 'px');
-                    el.style.setProperty('--by', ty + 'px');
-
-                    document.body.appendChild(el);
-                    sparkCount++;
-
-                    (function(node) {
-                        setTimeout(() => {
-                            if (node && node.parentNode) node.remove();
-                            sparkCount--;
-                        }, 1200);
-                    })(el);
-                }
-            }
-
-            function initCursorBubbles() {
+            function initPointerEffects() {
                 if (!finePointer || prefersReduced) return;
 
-                document.addEventListener('mousemove', function(e) {
-                    var mx = e.clientX, my = e.clientY;
+                var glow = document.createElement('div');
+                glow.className = 'cursor-glow';
+                glow.setAttribute('aria-hidden', 'true');
+                document.body.appendChild(glow);
 
-                    var dx = lastMX < 0 ? 0 : mx - lastMX;
-                    var dy = lastMY < 0 ? 0 : my - lastMY;
-                    lastMX = mx; lastMY = my;
-                    var vel = Math.sqrt(dx * dx + dy * dy);
+                var mx = 0, my = 0, queued = false;
 
-                    var now = performance.now();
-                    if (vel > 1 && now - lastSparkAt > 50) {
-                        lastSparkAt = now;
-                        spawnBubble(mx, my, vel);
+                function paint() {
+                    queued = false;
+                    glow.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+                    if (ambient) {
+                        var nx = mx / window.innerWidth - 0.5;
+                        var ny = my / window.innerHeight - 0.5;
+                        ambient.style.transform = 'translate(' + (nx * 14) + 'px,' + (ny * 14) + 'px)';
                     }
+                }
+
+                document.addEventListener('mousemove', function (e) {
+                    mx = e.clientX; my = e.clientY;
+                    glow.classList.add('is-active');
+                    // coalesce every move in a frame into a single write
+                    if (!queued) { queued = true; requestAnimationFrame(paint); }
                 }, { passive: true });
 
-                document.addEventListener('click', (e) => {
-                    for(let i=0; i<8; i++) spawnBubble(e.clientX, e.clientY, 50);
+                document.addEventListener('mouseleave', function () {
+                    glow.classList.remove('is-active');
                 });
             }
 
-            initCursorBubbles();
+            initPointerEffects();
 
-            // --- Subtle parallax on full ambient layer (does not fight blob keyframes) ---
-            var ambient = document.querySelector('.ambient-bg');
-            function initAmbientParallax() {
-                if (!ambient || prefersReduced || !finePointer) return;
-
-                document.addEventListener('mousemove', function (e) {
-                    var nx = (e.clientX / window.innerWidth - 0.5);
-                    var ny = (e.clientY / window.innerHeight - 0.5);
-                    ambient.style.transform = 'translate(' + (nx * 14) + 'px,' + (ny * 14) + 'px)';
-                }, { passive: true });
-            }
-
-            initAmbientParallax();
-
-            // --- Scroll spy (nav active) ---
+            // --- Scroll spy + navbar + back-to-top, all on one rAF'd listener ---
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link[data-section]');
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
 
-            function updateActiveNav() {
-                var probe = window.scrollY + Math.min(140, window.innerHeight * 0.22);
+            // Cache tops so scrolling never forces a layout to read offsetTop.
+            var tops = [];
+            function measure() {
+                tops = [].map.call(sections, function (s) { return { id: s.id, top: s.offsetTop }; });
+            }
+
+            var ticking = false;
+            function onScroll() {
+                ticking = false;
+                var y = window.scrollY;
+                var probe = y + Math.min(140, window.innerHeight * 0.22);
                 var current = 'home';
 
-                for (var i = sections.length - 1; i >= 0; i--) {
-                    var sec = sections[i];
-                    if (probe >= sec.offsetTop - 4) {
-                        current = sec.id;
-                        break;
-                    }
+                for (var i = tops.length - 1; i >= 0; i--) {
+                    if (probe >= tops[i].top - 4) { current = tops[i].id; break; }
                 }
 
                 navLinks.forEach(function (link) {
                     link.classList.toggle('active', link.dataset.section === current);
                 });
+
+                navbar.classList.toggle('scrolled', y > 100);
+                backToTop.classList.toggle('visible', y > 100);
             }
 
-            window.addEventListener('scroll', updateActiveNav, { passive: true });
-            updateActiveNav();
+            window.addEventListener('scroll', function () {
+                if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+            }, { passive: true });
 
-            // --- Reveal on scroll ---
+            window.addEventListener('resize', function () { measure(); onScroll(); }, { passive: true });
+            measure();
+            onScroll();
+
+            // --- Reveal on scroll, staggered per group ---
             const revealEls = document.querySelectorAll('.reveal');
             if (revealEls.length && !prefersReduced && 'IntersectionObserver' in window) {
-                const io = new IntersectionObserver(function (entries) {
+                const STEP = 70;   // ms between neighbours in the same container
+                const MAX = 5;     // stop stacking delay past this many items
+
+                const io = new IntersectionObserver(function (entries, obs) {
+                    // Group whatever arrived this tick by parent, so a row of
+                    // cards cascades instead of landing all at once.
+                    var groups = new Map();
                     entries.forEach(function (en) {
-                        if (en.isIntersecting) en.target.classList.add('is-visible');
+                        if (!en.isIntersecting) return;
+                        var p = en.target.parentNode;
+                        if (!groups.has(p)) groups.set(p, []);
+                        groups.get(p).push(en.target);
+                    });
+
+                    groups.forEach(function (items) {
+                        items.sort(function (a, b) {
+                            return [].indexOf.call(a.parentNode.children, a) -
+                                   [].indexOf.call(b.parentNode.children, b);
+                        });
+                        items.forEach(function (el, i) {
+                            el.style.setProperty('--reveal-delay', Math.min(i, MAX) * STEP + 'ms');
+                            el.classList.add('is-animating', 'is-visible');
+                            el.addEventListener('transitionend', function done() {
+                                el.classList.remove('is-animating');   // drop the layer hint
+                                el.style.removeProperty('--reveal-delay');
+                                el.removeEventListener('transitionend', done);
+                            });
+                            obs.unobserve(el);
+                        });
                     });
                 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
@@ -537,74 +529,117 @@
                 revealEls.forEach(function (el) { el.classList.add('is-visible'); });
             }
 
-            // --- Navigation scroll + back to top ---
-            window.addEventListener('scroll', function () {
-                const navbar = document.getElementById('navbar');
-                const backToTop = document.getElementById('backToTop');
-
-                if (window.scrollY > 100) {
-                    navbar.classList.add('scrolled');
-                    backToTop.classList.add('visible');
-                } else {
-                    navbar.classList.remove('scrolled');
-                    backToTop.classList.remove('visible');
-                }
-            });
-
             // --- Mobile menu ---
             const hamburger = document.getElementById('hamburger');
             const navLinksEl = document.getElementById('nav-links');
 
+            function setMenu(open) {
+                hamburger.classList.toggle('active', open);
+                navLinksEl.classList.toggle('show', open);
+                hamburger.setAttribute('aria-expanded', String(open));
+                hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                document.body.style.overflow = open ? 'hidden' : '';
+            }
+
             hamburger.addEventListener('click', function () {
-                hamburger.classList.toggle('active');
-                navLinksEl.classList.toggle('show');
-                document.body.style.overflow = navLinksEl.classList.contains('show') ? 'hidden' : '';
+                setMenu(!navLinksEl.classList.contains('show'));
             });
 
             navLinksEl.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    hamburger.classList.remove('active');
-                    navLinksEl.classList.remove('show');
-                    document.body.style.overflow = '';
-                });
+                link.addEventListener('click', function () { setMenu(false); });
             });
 
-            // --- Skill / project card hover (keeps CSS transitions) ---
-            document.querySelectorAll('.skill-card').forEach(function (card) {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = '';
-                });
-            });
-
-            document.querySelectorAll('.project-card').forEach(function (card) {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-15px) scale(1.02)';
-                });
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = '';
-                });
-            });
-
-            // --- Typing hero subtitle ---
-            const heroSubtitle = document.querySelector('.hero .subtitle');
-            if (heroSubtitle && !prefersReduced) {
-                var text = heroSubtitle.textContent;
-                heroSubtitle.textContent = '';
-                var i = 0;
-
-                function typeWriter() {
-                    if (i < text.length) {
-                        heroSubtitle.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 100);
-                    }
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && navLinksEl.classList.contains('show')) {
+                    setMenu(false);
+                    hamburger.focus();
                 }
+            });
 
-                setTimeout(typeWriter, 1000);
+            // Card hover is handled entirely by :hover in style.css -- the JS
+            // that used to set an inline transform here overrode those rules.
+
+            // --- Hero subtitle: "Software Engineer &" holds, the role rotates ---
+            const heroSubtitle = document.querySelector('.hero .subtitle');
+            if (heroSubtitle) {
+                const PREFIX = 'Software Engineer & ';
+                const ROLES = ['Developer', 'Flutter Developer', 'WordPress Expert', 'UI/UX Designer'];
+
+                if (prefersReduced) {
+                    heroSubtitle.textContent = PREFIX + ROLES[0];
+                } else {
+                    heroSubtitle.textContent = '';
+                    const fixed = document.createElement('span');
+                    fixed.textContent = PREFIX;
+                    const rotator = document.createElement('span');
+                    rotator.className = 'rotator';
+                    const caret = document.createElement('span');
+                    caret.className = 'caret';
+                    caret.setAttribute('aria-hidden', 'true');
+                    heroSubtitle.append(fixed, rotator, caret);
+
+                    let w = 0, n = 0, deleting = false;
+
+                    (function tick() {
+                        const word = ROLES[w];
+                        n += deleting ? -1 : 1;
+                        rotator.textContent = word.slice(0, n);
+
+                        let wait = deleting ? 35 : 60;
+                        if (!deleting && n === word.length) {
+                            wait = 1800;                       // hold the finished role
+                            deleting = true;
+                        } else if (deleting && n === 0) {
+                            deleting = false;
+                            w = (w + 1) % ROLES.length;
+                            wait = 250;
+                        }
+                        setTimeout(tick, wait);
+                    })();
+                }
             }
+
+            // --- Contact form: submit to Formspree without leaving the page ---
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn && submitBtn.querySelector('.btn-text');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const original = btnText ? btnText.textContent : '';
+                    submitBtn.disabled = true;
+                    if (btnText) btnText.textContent = 'Sending…';
+                    formMessage.className = 'form-message';
+                    formMessage.textContent = '';
+
+                    fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { Accept: 'application/json' }
+                    }).then(function (res) {
+                        if (!res.ok) throw new Error('Request failed');
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = 'Thanks! Your message is on its way — I\'ll get back to you soon.';
+                        contactForm.reset();
+                    }).catch(function () {
+                        formMessage.className = 'form-message error';
+                        formMessage.innerHTML =
+                            'Something went wrong. Please email me directly at ' +
+                            '<a href="mailto:ahtashamfarooq193@gmail.com">ahtashamfarooq193@gmail.com</a>.';
+                    }).finally(function () {
+                        submitBtn.disabled = false;
+                        if (btnText) btnText.textContent = original;
+                    });
+                });
+            }
+
+            // --- Current year in the footer ---
+            document.querySelectorAll('#year').forEach(function (el) {
+                el.textContent = new Date().getFullYear();
+            });
 
             // --- Footer particles + decoration styles ---
             function createParticles() {
@@ -625,19 +660,7 @@
             createParticles();
 
             var style = document.createElement('style');
-            style.textContent =
-                '.footer-particle{animation:float 15s infinite linear;}' +
-                '.footer-decoration{position:absolute;font-size:2rem;color:white;opacity:0.3;' +
-                'animation:floatDecorations 8s ease-in-out infinite;pointer-events:none;z-index:1;' +
-                'text-shadow:0 0 10px rgba(255,255,255,0.5);}' +
-                '.decoration1{top:20%;left:10%;animation-delay:0s;}' +
-                '.decoration2{top:40%;right:15%;animation-delay:2s;font-size:1.5rem;}' +
-                '.decoration3{bottom:30%;left:20%;animation-delay:4s;font-size:1.8rem;}' +
-                '.decoration4{bottom:20%;right:10%;animation-delay:6s;font-size:1.3rem;}' +
-                '@keyframes floatDecorations{0%,100%{transform:translateY(0) rotate(0deg);opacity:0.1;}' +
-                '25%{transform:translateY(-15px) rotate(90deg);opacity:0.15;}' +
-                '50%{transform:translateY(-30px) rotate(180deg);opacity:0.1;}' +
-                '75%{transform:translateY(-15px) rotate(270deg);opacity:0.15;}}';
+            style.textContent = '.footer-particle{animation:float 15s infinite linear;}';
             document.head.appendChild(style);
         })();
     </script>
