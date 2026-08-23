@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Redirect stubs -- they only bounce to index.html, nothing to index.
+Disallow: /contact.html
+Disallow: /skills.html
+
+Sitemap: https://ahtashamfarooq.netlify.app/sitemap.xml
