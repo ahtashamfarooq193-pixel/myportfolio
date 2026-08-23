@@ -53,7 +53,8 @@ multi-megabyte PNG is what the whole folder used to be.
 
 - Email: ahtashamfarooq193@gmail.com
 - Phone: +92 3011045479
-- GitHub: [@ahtashamfarooq](https://github.com/ahtashamfarooq)
+- GitHub: [@ahtashamfarooq193-pixel](https://github.com/ahtashamfarooq193-pixel)
+- LinkedIn: [ahtasham-webdev](https://www.linkedin.com/in/ahtasham-webdev/)
 - Instagram: [@shamii_8628](https://instagram.com/shamii_8628)
 
 ---
