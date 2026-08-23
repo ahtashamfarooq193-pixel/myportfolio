@@ -1021,6 +1021,17 @@ section {
     gap: 4rem;
 }
 
+/* Grid items default to min-width:auto, so a long unbreakable string like the
+   GitHub URL pushes the whole column past the viewport on narrow phones. */
+.contact-info,
+.contact-form {
+    min-width: 0;
+}
+
+.contact-item a {
+    overflow-wrap: anywhere;
+}
+
 .contact-info h3 {
     color: #38bdf8;
     font-size: 2rem;
@@ -1310,7 +1321,9 @@ footer::before {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    font-size: 2.5rem;
+    /* At a flat 2.5rem the wordmark runs 343px wide inside a 338px footer on a
+       375px screen and the last letter gets clipped. */
+    font-size: clamp(1.6rem, 7vw, 2.5rem);
     font-weight: bold;
     background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #0ea5e9 100%);
     background-size: 200% 200%;
@@ -1445,7 +1458,9 @@ footer::before {
 
 .back-to-top {
     position: fixed;
-    bottom: 2rem;
+    /* env() keeps the button above a phone's gesture bar; the fallback in the
+       first argument is what desktop and older browsers use. */
+    bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
     right: 2rem;
     width: 50px;
     height: 50px;
@@ -1560,6 +1575,26 @@ footer::before {
 }
 
 @media (max-width: 768px) {
+    /* The floating button sits over whatever is beneath it while scrolling.
+       Pull it into the corner and shrink it so it covers less, and give the
+       footer room underneath so it lands on empty space at the end of the page. */
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    footer {
+        padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .footer-logo-img {
+        height: 36px;
+        width: 36px;
+    }
+
     .hero {
         padding: 120px 5% 40px !important;
         min-height: auto !important;
