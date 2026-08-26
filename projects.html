@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-PK">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ahtasham Farooq</title>
+    <title>Web, Flutter & WordPress Projects | Ahtasham Farooq</title>
     <meta name="description"
-        content="View the full portfolio of Ahtasham Farooq, featuring web development, mobile apps, and WordPress solutions.">
+        content="Explore selected web development, Flutter mobile app, AI and WordPress projects by Ahtasham Farooq, a software engineer based in Pakistan.">
+    <meta name="author" content="Ahtasham Farooq">
+    <meta name="robots" content="index, follow, max-image-preview:large">
 
     <link rel="canonical" href="https://ahtashamfarooq.netlify.app/projects.html">
+    <link rel="alternate" hreflang="en-PK" href="https://ahtashamfarooq.netlify.app/projects.html">
+    <link rel="alternate" hreflang="x-default" href="https://ahtashamfarooq.netlify.app/projects.html">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ahtashamfarooq.netlify.app/projects.html">
-    <meta property="og:title" content="Portfolio - Ahtasham Farooq">
+    <meta property="og:title" content="Web, Flutter & WordPress Projects | Ahtasham Farooq">
     <meta property="og:description"
         content="Web development, mobile apps and WordPress solutions - the full collection of my work.">
     <meta property="og:image" content="https://ahtashamfarooq.netlify.app/public/og-image.jpg">
@@ -21,11 +25,25 @@
     <meta property="og:image:alt" content="Ahtasham Farooq - Software Engineer">
     <meta property="og:site_name" content="Ahtasham.dev">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portfolio - Ahtasham Farooq">
+    <meta name="twitter:title" content="Web, Flutter & WordPress Projects | Ahtasham Farooq">
     <meta name="twitter:description"
         content="Web development, mobile apps and WordPress solutions - the full collection of my work.">
     <meta name="twitter:image" content="https://ahtashamfarooq.netlify.app/public/og-image.jpg">
     <meta name="theme-color" content="#0b1120">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://ahtashamfarooq.netlify.app/projects.html#webpage",
+        "url": "https://ahtashamfarooq.netlify.app/projects.html",
+        "name": "Web, Flutter and WordPress Projects by Ahtasham Farooq",
+        "description": "Selected web development, mobile application, AI and WordPress projects.",
+        "isPartOf": { "@id": "https://ahtashamfarooq.netlify.app/#website" },
+        "about": { "@id": "https://ahtashamfarooq.netlify.app/#person" },
+        "inLanguage": "en-PK"
+    }
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +57,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="ambient-bg" aria-hidden="true">
         <div class="ambient-bg__blob ambient-bg__blob--1"></div>
         <div class="ambient-bg__blob ambient-bg__blob--2"></div>
@@ -51,7 +70,7 @@
     <nav id="navbar">
         <div class="logo">
             <a href="index.html">
-                <img width="256" height="256" src="public/new_logo.png" alt="Logo" class="nav-logo">
+                <img width="256" height="256" src="public/new_logo.png" alt="" class="nav-logo">
                 <span class="logo-text">Ahtasham.dev</span>
             </a>
         </div>
@@ -70,6 +89,8 @@
         </ul>
     </nav>
 
+    <main id="main-content">
+
     <section class="hero projects-hero" id="projects-hero">
         <div class="floating-shapes">
             <div class="shape shape1"></div>
@@ -78,8 +99,8 @@
         </div>
         <div class="hero-content">
             <div class="hero-text text-center">
-                <h1 class="reveal">My Portfolio</h1>
-                <p class="subtitle">A collection of my best work and side projects</p>
+                <h1 class="reveal">Web, Mobile & WordPress Projects</h1>
+                <p class="subtitle">Selected software engineering work</p>
                 <p class="tagline">Explore a diverse range of applications, from mobile apps built with Flutter to complex web platforms and custom WordPress solutions.</p>
             </div>
         </div>
@@ -87,11 +108,11 @@
 
     <section class="projects-full" id="projects">
         <div class="filter-container reveal">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="web">Web Development</button>
-            <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
-            <button class="filter-btn" data-filter="wordpress">WordPress</button>
-            <button class="filter-btn" data-filter="ai">AI & ML</button>
+            <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+            <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web Development</button>
+            <button type="button" class="filter-btn" data-filter="mobile" aria-pressed="false">Mobile Apps</button>
+            <button type="button" class="filter-btn" data-filter="wordpress" aria-pressed="false">WordPress</button>
+            <button type="button" class="filter-btn" data-filter="ai" aria-pressed="false">AI & ML</button>
         </div>
 
         <div class="projects-grid" id="projects-grid">
@@ -304,33 +325,15 @@
                 </div>
             </div>
             
-            <!-- Placeholder for more projects - User can add more here -->
-            <div class="project-card reveal" data-category="web">
-                <div class="project-image" style="background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);">
-                    <div class="project-overlay">
-                        <span class="project-link"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div style="font-size: 3rem; color: white; display: flex; align-items: center; justify-content: center; height: 100%;">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3>Future Project</h3>
-                    <p>This is a placeholder for your upcoming amazing project. Your portfolio is always growing!</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Innovation</span>
-                        <span class="project-tag">Growth</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
+
+    </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img width="256" height="256" src="public/new_logo.png" alt="Logo" class="footer-logo-img">
+                <img width="256" height="256" src="public/new_logo.png" alt="" class="footer-logo-img">
                 Ahtasham.dev
             </div>
             <p class="footer-tagline">Building the future, one line of code at a time.</p>
@@ -345,10 +348,10 @@
 
             <div class="footer-social">
                 <a href="https://www.linkedin.com/in/ahtasham-webdev/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                <a href="https://github.com/ahtashamfarooq193-pixel" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/shamii_8628" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:ahtashamfarooq193@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+923011045479" title="Phone"><i class="fas fa-phone"></i></a>
+                <a href="https://github.com/ahtashamfarooq193-pixel" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="https://instagram.com/shamii_8628" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="mailto:ahtashamfarooq193@gmail.com" title="Email" aria-label="Email Ahtasham Farooq"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="tel:+923011045479" title="Phone" aria-label="Call Ahtasham Farooq"><i class="fas fa-phone" aria-hidden="true"></i></a>
             </div>
 
             <div class="footer-bottom">
@@ -401,8 +404,12 @@
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
                     btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
 
                     const filter = btn.dataset.filter;
                     let shown = 0;
