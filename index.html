@@ -139,7 +139,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260912-scroll">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="180x180" href="public/favicon-180.png">
     <link rel="apple-touch-icon" href="public/favicon-180.png">
@@ -626,7 +626,6 @@
             const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
             // --- Cursor glow: one element, moved on rAF ---
-            var ambient = document.querySelector('.ambient-bg');
 
             function initPointerEffects() {
                 if (!finePointer || prefersReduced) return;
@@ -641,11 +640,7 @@
                 function paint() {
                     queued = false;
                     glow.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-                    if (ambient) {
-                        var nx = mx / window.innerWidth - 0.5;
-                        var ny = my / window.innerHeight - 0.5;
-                        ambient.style.transform = 'translate(' + (nx * 14) + 'px,' + (ny * 14) + 'px)';
-                    }
+
                 }
 
                 document.addEventListener('mousemove', function (e) {
@@ -703,7 +698,7 @@
 
             // --- Reveal on scroll, staggered per group ---
             const revealEls = document.querySelectorAll('.reveal');
-            if (revealEls.length && !prefersReduced && 'IntersectionObserver' in window) {
+            if (revealEls.length && finePointer && !prefersReduced && 'IntersectionObserver' in window) {
                 const STEP = 70;   // ms between neighbours in the same container
                 const MAX = 5;     // stop stacking delay past this many items
 
@@ -769,6 +764,11 @@
                     let w = 0, n = 0, deleting = false;
 
                     (function tick() {
+                        // Pause typing while the hero is off-screen or the tab is hidden.
+                        if (document.hidden || window.scrollY > window.innerHeight) {
+                            setTimeout(tick, 500);
+                            return;
+                        }
                         const word = ROLES[w];
                         n += deleting ? -1 : 1;
                         rotator.textContent = word.slice(0, n);
@@ -829,27 +829,6 @@
                 el.textContent = new Date().getFullYear();
             });
 
-            // --- Footer particles + decoration styles ---
-            function createParticles() {
-                const footer = document.querySelector('footer');
-                if (!footer) return;
-
-                for (var i = 0; i < 20; i++) {
-                    var particle = document.createElement('div');
-                    particle.className = 'footer-particle';
-                    particle.style.cssText =
-                        'position:absolute;width:4px;height:4px;background:rgba(74,85,104,0.2);border-radius:50%;' +
-                        'pointer-events:none;animation:float 15s infinite linear;left:' + (Math.random() * 100) + '%;' +
-                        'top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 15) + 's;';
-                    footer.appendChild(particle);
-                }
-            }
-
-            createParticles();
-
-            var style = document.createElement('style');
-            style.textContent = '.footer-particle{animation:float 15s infinite linear;}';
-            document.head.appendChild(style);
         })();
     </script>
     <script src="service-page.js" defer></script>
