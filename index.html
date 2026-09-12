@@ -23,7 +23,7 @@
     <meta property="og:image" content="https://ahtashamfarooq.netlify.app/public/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Ahtasham Farooq - Software Engineer">
+    <meta property="og:image:alt" content="Ahtasham Farooq - Full Stack Developer">
     <meta property="og:site_name" content="Ahtasham.dev">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ahtasham Farooq | Web, Flutter & WordPress Developer">
@@ -47,7 +47,7 @@
                 "@type": "ProfilePage",
                 "@id": "https://ahtashamfarooq.netlify.app/#webpage",
                 "url": "https://ahtashamfarooq.netlify.app/",
-                "name": "Ahtasham Farooq | Software Engineer Portfolio",
+                "name": "Ahtasham Farooq | Full Stack Developer Portfolio",
                 "isPartOf": { "@id": "https://ahtashamfarooq.netlify.app/#website" },
                 "mainEntity": { "@id": "https://ahtashamfarooq.netlify.app/#person" },
                 "inLanguage": "en"
@@ -59,7 +59,7 @@
                 "alternateName": "Ahtasham.dev",
                 "url": "https://ahtashamfarooq.netlify.app/",
                 "image": "https://ahtashamfarooq.netlify.app/public/shamii-ch.webp",
-                "jobTitle": "Software Engineer",
+                "jobTitle": "Full Stack Developer",
                 "description": "Software engineer building web, Flutter and WordPress solutions for remote clients worldwide.",
                 "email": "mailto:ahtashamfarooq193@gmail.com",
                 "telephone": "+92-301-1045479",
@@ -186,7 +186,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Hi, I'm Ahtasham Farooq</h1>
-                <p class="subtitle">Software Engineer & Developer</p>
+                <p class="subtitle">Full Stack Developer</p>
                 <p class="tagline">I build responsive websites and Flutter mobile apps for startups and businesses,
                     working remotely with clients across the USA, UK, Australia and worldwide.</p>
                 <div class="cta-buttons">
@@ -196,7 +196,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-side-image-container">
-                    <img width="833" height="1308" src="public/shamii-ch.webp" alt="Ahtasham Farooq, software engineer and developer" class="hero-side-image" loading="eager" fetchpriority="high">
+                    <img width="833" height="1308" src="public/shamii-ch.webp" alt="Ahtasham Farooq, full stack developer" class="hero-side-image" loading="eager" fetchpriority="high">
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>Hello! I'm Ahtasham Farooq</h3>
-                <p>I'm a software engineer based in Bahawalpur, Pakistan and available for remote international work.
+                <p>I'm a full stack developer based in Bahawalpur, Pakistan and available for remote international work.
                     I build responsive web applications, Flutter mobile apps and custom WordPress websites with an
                     emphasis on usability, maintainable code and dependable performance.</p>
                 <p>My journey in software development has been driven by curiosity and a desire to solve complex
@@ -313,19 +313,19 @@
         <p class="section-subtitle">Remote development support for businesses worldwide</p>
 
         <div class="service-grid">
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
                 <h3>Web Development</h3>
                 <p>Responsive business websites and web applications built around clear requirements, maintainable code and a smooth user experience.</p>
                 <a href="web-development.html" class="service-link">Explore web development <span aria-hidden="true">&rarr;</span></a>
             </article>
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
                 <h3>Flutter App Development</h3>
                 <p>Cross-platform Flutter applications for Android and iOS, including API integration, Firebase features and responsive interfaces.</p>
                 <a href="flutter-development.html" class="service-link">Explore Flutter development <span aria-hidden="true">&rarr;</span></a>
             </article>
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fab fa-wordpress" aria-hidden="true"></i></div>
                 <h3>WordPress Development</h3>
                 <p>Custom WordPress websites, theme customization and practical improvements for performance, usability and content management.</p>
@@ -742,46 +742,6 @@
 
             // Card hover is handled entirely by :hover in style.css -- the JS
             // that used to set an inline transform here overrode those rules.
-
-            // --- Hero subtitle: "Software Engineer &" holds, the role rotates ---
-            const heroSubtitle = document.querySelector('.hero .subtitle');
-            if (heroSubtitle) {
-                const PREFIX = 'Software Engineer & ';
-                const ROLES = ['Developer', 'Flutter Developer', 'WordPress Expert', 'UI/UX Designer'];
-
-                if (prefersReduced) {
-                    heroSubtitle.textContent = PREFIX + ROLES[0];
-                } else {
-                    heroSubtitle.textContent = '';
-                    const fixed = document.createElement('span');
-                    fixed.textContent = PREFIX;
-                    const rotator = document.createElement('span');
-                    rotator.className = 'rotator';
-                    const caret = document.createElement('span');
-                    caret.className = 'caret';
-                    caret.setAttribute('aria-hidden', 'true');
-                    heroSubtitle.append(fixed, rotator, caret);
-
-                    let w = 0, n = 0, deleting = false;
-
-                    (function tick() {
-                        const word = ROLES[w];
-                        n += deleting ? -1 : 1;
-                        rotator.textContent = word.slice(0, n);
-
-                        let wait = deleting ? 35 : 60;
-                        if (!deleting && n === word.length) {
-                            wait = 1800;                       // hold the finished role
-                            deleting = true;
-                        } else if (deleting && n === 0) {
-                            deleting = false;
-                            w = (w + 1) % ROLES.length;
-                            wait = 250;
-                        }
-                        setTimeout(tick, wait);
-                    })();
-                }
-            }
 
             // --- Contact form: submit to Formspree without leaving the page ---
             const contactForm = document.getElementById('contactForm');
