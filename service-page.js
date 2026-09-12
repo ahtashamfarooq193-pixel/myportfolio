@@ -14,6 +14,10 @@
         document.body.style.overflow = open ? 'hidden' : '';
     }
 
+    var mobile = window.matchMedia('(max-width: 768px)');
+    mobile.addEventListener('change', function () { setMenu(false); });
+    hamburger.closest('nav').classList.add('menu-ready');
+
     hamburger.addEventListener('click', function () {
         setMenu(!nav.classList.contains('show'));
     });

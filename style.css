@@ -170,12 +170,17 @@ h1 {
 
 /* Scroll-reveal (Advanced Staggered Version) */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px) scale(0.97);
+    opacity: 1;
+    transform: none;
     /* --reveal-delay is set per element by JS so items in a row arrive one
        after another instead of all at once. */
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
                 transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal-pending:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
 }
 
 /* Only hint the compositor while an element is actually moving -- keeping
@@ -191,7 +196,8 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal {
+    .reveal,
+    .reveal.reveal-pending:not(.is-visible) {
         opacity: 1;
         transform: none;
         transition: none;
@@ -961,7 +967,8 @@ section {
     z-index: 2;
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-card:focus-within .project-overlay {
     opacity: 1;
 }
 
@@ -2318,5 +2325,36 @@ footer::before {
     .case-study-meta,
     .case-study-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Keep project actions discoverable on touch screens. */
+@media (hover: none), (pointer: coarse) {
+    .project-overlay {
+        opacity: 1;
+        background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.65));
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links { visibility: hidden; }
+    .nav-links.show { visibility: visible; }
+    nav:not(.menu-ready) .hamburger { display: none; }
+    nav:not(.menu-ready) .nav-links {
+        position: static;
+        visibility: visible;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        padding: 0.5rem;
+        gap: 0.75rem;
+    }
+    nav:not(.menu-ready) .nav-links li {
+        width: auto;
+        opacity: 1;
+        transform: none;
     }
 }

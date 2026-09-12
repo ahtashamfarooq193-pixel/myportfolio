@@ -69,7 +69,7 @@
 
     <nav id="navbar">
         <div class="logo">
-            <a href="index.html">
+            <a href="/">
                 <img width="256" height="256" src="public/new_logo.png" alt="" class="nav-logo">
                 <span class="logo-text">Ahtasham.dev</span>
             </a>
@@ -81,12 +81,12 @@
             <span></span>
         </button>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="index.html#about" class="nav-link">About</a></li>
-            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-            <li><a href="index.html#services" class="nav-link">Services</a></li>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/#about" class="nav-link">About</a></li>
+            <li><a href="/#skills" class="nav-link">Skills</a></li>
+            <li><a href="/#services" class="nav-link">Services</a></li>
             <li><a href="#projects" class="nav-link active">Projects</a></li>
-            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            <li><a href="/#contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
 
@@ -350,12 +350,12 @@
             <p class="footer-tagline">Building the future, one line of code at a time.</p>
 
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#skills">Skills</a>
-                <a href="index.html#services">Services</a>
+                <a href="/">Home</a>
+                <a href="/#about">About</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#services">Services</a>
                 <a href="#projects">Projects</a>
-                <a href="index.html#contact">Contact</a>
+                <a href="/#contact">Contact</a>
             </div>
 
             <div class="footer-social">
@@ -413,6 +413,8 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
 
+            const filterTimers = new WeakMap();
+
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
                     // Update active button
@@ -427,6 +429,7 @@
                     let shown = 0;
 
                     projectCards.forEach(card => {
+                        clearTimeout(filterTimers.get(card));
                         const categories = (card.dataset.category || '').split(' ');
                         const match = filter === 'all' || categories.includes(filter);
 
@@ -434,10 +437,10 @@
                             card.classList.remove('is-hidden');
                             // stagger the survivors back in, same feel as the scroll reveal
                             const delay = Math.min(shown++, 5) * 55;
-                            setTimeout(() => card.classList.remove('is-hiding'), 10 + delay);
+                            filterTimers.set(card, setTimeout(() => card.classList.remove('is-hiding'), prefersReduced ? 0 : 10 + delay));
                         } else {
                             card.classList.add('is-hiding');
-                            setTimeout(() => card.classList.add('is-hidden'), 400);
+                            filterTimers.set(card, setTimeout(() => card.classList.add('is-hidden'), prefersReduced ? 0 : 400));
                         }
                     });
                 });
@@ -475,7 +478,10 @@
                     });
                 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-                revealEls.forEach(function (el) { io.observe(el); });
+                revealEls.forEach(function (el) {
+                    io.observe(el);
+                    el.classList.add('reveal-pending');
+                });
             } else {
                 revealEls.forEach(function (el) { el.classList.add('is-visible'); });
             }
@@ -497,38 +503,13 @@
             }, { passive: true });
             onScroll();
 
-            // --- MOBILE MENU ---
-            const hamburger = document.getElementById('hamburger');
-            const navLinksEl = document.getElementById('nav-links');
-            function setMenu(open) {
-                hamburger.classList.toggle('active', open);
-                navLinksEl.classList.toggle('show', open);
-                hamburger.setAttribute('aria-expanded', String(open));
-                hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-                document.body.style.overflow = open ? 'hidden' : '';
-            }
-
-            hamburger.addEventListener('click', function () {
-                setMenu(!navLinksEl.classList.contains('show'));
-            });
-
-            navLinksEl.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () { setMenu(false); });
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && navLinksEl.classList.contains('show')) {
-                    setMenu(false);
-                    hamburger.focus();
-                }
-            });
-
             // --- Current year in the footer ---
             document.querySelectorAll('#year').forEach(function (el) {
                 el.textContent = new Date().getFullYear();
             });
         })();
     </script>
+    <script src="service-page.js" defer></script>
 </body>
 
 </html>
