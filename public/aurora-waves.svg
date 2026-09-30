@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+ <defs>
+  <linearGradient id="r" x1="0" y1="900" x2="1500" y2="60" gradientUnits="userSpaceOnUse"><stop stop-color="#2563eb" stop-opacity="0"/><stop offset=".3" stop-color="#818cf8"/><stop offset=".58" stop-color="#22d3ee"/><stop offset=".8" stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></linearGradient>
+  <linearGradient id="p" x1="100" y1="850" x2="1500" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#a78bfa" stop-opacity="0"/><stop offset=".48" stop-color="#8b5cf6"/><stop offset=".78" stop-color="#60a5fa"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></linearGradient>
+  <filter id="glow" x="-30%" y="-50%" width="160%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+  <path id="wave" d="M-180 830C120 1020 320 200 660 440S1050 890 1320 340 1620 40 1800 180"/>
+ </defs>
+ <use href="#wave" stroke="url(#r)" stroke-width="80" opacity=".3" filter="url(#glow)"/>
+ <use href="#wave" stroke="url(#r)" stroke-width="2" opacity=".85"/>
+ <g stroke="url(#r)">
+  <use href="#wave" transform="translate(0 10)" opacity=".6"/>
+  <use href="#wave" transform="translate(0 22)" opacity=".5"/>
+  <use href="#wave" transform="translate(0 36)" opacity=".42"/>
+  <use href="#wave" transform="translate(0 52)" opacity=".34"/>
+  <use href="#wave" transform="translate(0 70)" opacity=".27"/>
+  <use href="#wave" transform="translate(0 90)" opacity=".2"/>
+  <use href="#wave" transform="translate(0 112)" opacity=".14"/>
+ </g>
+ <path d="M-100 680C300 190 510 1030 910 620S1320 260 1740 400" stroke="url(#p)" stroke-width="65" opacity=".28" filter="url(#glow)"/>
+ <g stroke="url(#p)" opacity=".45">
+  <path d="M-100 680C300 190 510 1030 910 620S1320 260 1740 400"/>
+  <path d="M-100 695C300 205 510 1045 910 635S1320 275 1740 415"/>
+  <path d="M-100 714C300 224 510 1064 910 654S1320 294 1740 434"/>
+ </g>
+</svg>
