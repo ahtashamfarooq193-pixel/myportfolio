@@ -64,7 +64,7 @@
                     "addressRegion": "Punjab",
                     "addressCountry": "PK"
                 },
-                "knowsAbout": ["Web Development", "Flutter", "WordPress", "React", "Node.js", "UI/UX Design"],
+                "knowsAbout": ["Web Development", "Full Stack Development", "Flutter", "WordPress", "React", "Node.js", "REST APIs", "Firebase", "MySQL", "MongoDB", "UI/UX Design"],
                 "sameAs": [
                     "https://www.linkedin.com/in/ahtasham-webdev/",
                     "https://github.com/ahtashamfarooq193-pixel",
@@ -285,10 +285,11 @@
                     <p>Specialize in custom plugin development, theme optimization, and seamless third-party
                         integrations.</p>
                 </div>
+
             </div>
 
             <div class="tech-stack">
-                <span class="tech-badge">Wordpress</span>
+                <span class="tech-badge">WordPress</span>
                 <span class="tech-badge">Flutter</span>
                 <span class="tech-badge">Dart</span>
                 <span class="tech-badge">JavaScript</span>
@@ -298,10 +299,13 @@
                 <span class="tech-badge">Python</span>
                 <span class="tech-badge">PHP</span>
                 <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">CSS</span>
                 <span class="tech-badge">MySQL</span>
                 <span class="tech-badge">MongoDB</span>
                 <span class="tech-badge">Git</span>
+                <span class="tech-badge">REST APIs</span>
+                <span class="tech-badge">Firebase</span>
+                <span class="tech-badge">Responsive Design</span>
             </div>
         </div>
     </section>
@@ -311,19 +315,19 @@
         <p class="section-subtitle">Remote development support for businesses worldwide</p>
 
         <div class="service-grid">
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
                 <h3>Web Development</h3>
                 <p>Responsive business websites and web applications built around clear requirements, maintainable code and a smooth user experience.</p>
                 <a href="web-development.html" class="service-link">Explore web development <span aria-hidden="true">&rarr;</span></a>
             </article>
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div>
                 <h3>Flutter App Development</h3>
                 <p>Cross-platform Flutter applications for Android and iOS, including API integration, Firebase features and responsive interfaces.</p>
                 <a href="flutter-development.html" class="service-link">Explore Flutter development <span aria-hidden="true">&rarr;</span></a>
             </article>
-            <article class="service-card reveal">
+            <article class="skill-card service-card reveal">
                 <div class="skill-icon"><i class="fab fa-wordpress" aria-hidden="true"></i></div>
                 <h3>WordPress Development</h3>
                 <p>Custom WordPress websites, theme customization and practical improvements for performance, usability and content management.</p>
@@ -586,7 +590,6 @@
             const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
             // --- Cursor glow: one element, moved on rAF ---
-            var ambient = document.querySelector('.ambient-bg');
 
             function initPointerEffects() {
                 if (!finePointer || prefersReduced) return;
@@ -601,11 +604,7 @@
                 function paint() {
                     queued = false;
                     glow.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-                    if (ambient) {
-                        var nx = mx / window.innerWidth - 0.5;
-                        var ny = my / window.innerHeight - 0.5;
-                        ambient.style.transform = 'translate(' + (nx * 14) + 'px,' + (ny * 14) + 'px)';
-                    }
+
                 }
 
                 document.addEventListener('mousemove', function (e) {
@@ -663,7 +662,7 @@
 
             // --- Reveal on scroll, staggered per group ---
             const revealEls = document.querySelectorAll('.reveal');
-            if (revealEls.length && !prefersReduced && 'IntersectionObserver' in window) {
+            if (revealEls.length && finePointer && !prefersReduced && 'IntersectionObserver' in window) {
                 const STEP = 70;   // ms between neighbours in the same container
                 const MAX = 5;     // stop stacking delay past this many items
 
@@ -696,37 +695,13 @@
                     });
                 }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-                revealEls.forEach(function (el) { io.observe(el); });
+                revealEls.forEach(function (el) {
+                    io.observe(el);
+                    el.classList.add('reveal-pending');
+                });
             } else {
                 revealEls.forEach(function (el) { el.classList.add('is-visible'); });
             }
-
-            // --- Mobile menu ---
-            const hamburger = document.getElementById('hamburger');
-            const navLinksEl = document.getElementById('nav-links');
-
-            function setMenu(open) {
-                hamburger.classList.toggle('active', open);
-                navLinksEl.classList.toggle('show', open);
-                hamburger.setAttribute('aria-expanded', String(open));
-                hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-                document.body.style.overflow = open ? 'hidden' : '';
-            }
-
-            hamburger.addEventListener('click', function () {
-                setMenu(!navLinksEl.classList.contains('show'));
-            });
-
-            navLinksEl.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () { setMenu(false); });
-            });
-
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape' && navLinksEl.classList.contains('show')) {
-                    setMenu(false);
-                    hamburger.focus();
-                }
-            });
 
             // Card hover is handled entirely by :hover in style.css -- the JS
             // that used to set an inline transform here overrode those rules.
@@ -735,7 +710,7 @@
             const heroSubtitle = document.querySelector('.hero .subtitle');
             if (heroSubtitle) {
                 const PREFIX = 'Software Engineer & ';
-                const ROLES = ['Developer', 'Flutter Developer', 'WordPress Expert', 'UI/UX Designer'];
+                const ROLES = ['Full Stack Developer', 'Flutter Developer', 'WordPress Expert', 'UI/UX Designer'];
 
                 if (prefersReduced) {
                     heroSubtitle.textContent = PREFIX + ROLES[0];
@@ -753,6 +728,11 @@
                     let w = 0, n = 0, deleting = false;
 
                     (function tick() {
+                        // Pause typing while the hero is off-screen or the tab is hidden.
+                        if (document.hidden || window.scrollY > window.innerHeight) {
+                            setTimeout(tick, 500);
+                            return;
+                        }
                         const word = ROLES[w];
                         n += deleting ? -1 : 1;
                         rotator.textContent = word.slice(0, n);
@@ -813,31 +793,11 @@
                 el.textContent = new Date().getFullYear();
             });
 
-            // --- Footer particles + decoration styles ---
-            function createParticles() {
-                const footer = document.querySelector('footer');
-                if (!footer) return;
-
-                for (var i = 0; i < 20; i++) {
-                    var particle = document.createElement('div');
-                    particle.className = 'footer-particle';
-                    particle.style.cssText =
-                        'position:absolute;width:4px;height:4px;background:rgba(74,85,104,0.2);border-radius:50%;' +
-                        'pointer-events:none;animation:float 15s infinite linear;left:' + (Math.random() * 100) + '%;' +
-                        'top:' + (Math.random() * 100) + '%;animation-delay:' + (Math.random() * 15) + 's;';
-                    footer.appendChild(particle);
-                }
-            }
-
-            createParticles();
-
-            var style = document.createElement('style');
-            style.textContent = '.footer-particle{animation:float 15s infinite linear;}';
-            document.head.appendChild(style);
         })();
     </script>
     <script src="cursor.js" defer></script>
     <script src="background.js" defer></script>
+<script src="service-page.js" defer></script>
 </body>
 
 </html>
