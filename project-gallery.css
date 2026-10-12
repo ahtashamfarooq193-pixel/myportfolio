@@ -1,0 +1,59 @@
+#projects { overflow:hidden; }
+.gallery-toolbar { max-width:1120px; margin:0 auto 16px; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; }
+.gallery-eyebrow { font-size:10px; letter-spacing:.22em; color:#98bfd4; }
+.gallery-toolbar p { margin:8px 0 0; color:#dce7ef; font-size:1.25rem; }
+.gallery-controls { display:flex; align-items:center; gap:10px; }
+.gallery-count { font:12px monospace; color:#9cb4c4; white-space:nowrap; }
+.gallery-controls button { width:42px; height:42px; border-radius:50%; background:#15232e; border:1px solid #4e6878; color:#dcecf5; font-size:22px; cursor:pointer; }
+#projects .projects-grid.project-gallery { display:block; position:relative; height:450px; max-width:1120px; margin:0 auto; perspective:1200px; isolation:isolate; touch-action:pan-y; }
+.project-gallery::before { content:''; position:absolute; width:90%; height:180px; left:5%; bottom:5px; border:1px solid #7aa9c338; border-radius:50%; transform:rotateX(62deg); box-shadow:0 0 65px #71bde514,inset 0 0 50px #71bde509; pointer-events:none; }
+#projects .project-gallery .project-card { position:absolute; width:440px; height:320px; top:35px; left:50%; margin:0; min-width:0; border-radius:18px; overflow:hidden; background:#14222c; border:1px solid #9dc6dc66; box-shadow:0 30px 60px #0007; opacity:1; transition:transform .32s cubic-bezier(.2,.75,.25,1),opacity .25s,filter .25s; transform-origin:center; }
+#projects .project-gallery .project-card::before,#projects .project-gallery .project-card::after { display:none; }
+#projects .project-gallery [data-position="0"] { transform:translateX(-50%) translateY(0); z-index:5; }
+#projects .project-gallery [data-position="-1"] { transform:translateX(calc(-50% - 300px)) translateY(36px) rotateY(35deg) scale(.76); z-index:4; filter:brightness(.7); }
+#projects .project-gallery [data-position="1"] { transform:translateX(calc(-50% + 300px)) translateY(36px) rotateY(-35deg) scale(.76); z-index:4; filter:brightness(.7); }
+#projects .project-gallery [data-position="-2"] { transform:translateX(calc(-50% - 465px)) translateY(70px) rotateY(48deg) scale(.55); z-index:3; filter:brightness(.45); }
+#projects .project-gallery [data-position="2"] { transform:translateX(calc(-50% + 465px)) translateY(70px) rotateY(-48deg) scale(.55); z-index:3; filter:brightness(.45); }
+#projects .project-gallery [data-position="-3"] { transform:translateX(-50%) translateY(80px) scale(.35); opacity:0; z-index:0; pointer-events:none; }
+#projects .project-gallery .project-image { position:absolute; inset:0 0 48px; height:auto; padding:0; background:#13212c; }
+#projects .project-gallery .project-image::after { display:none; }
+#projects .project-gallery .project-image-bg { width:100%; height:100%; object-fit:contain; object-position:center; opacity:1; filter:none; transform:none; }
+.gallery-trigger { position:absolute; inset:0; display:flex; align-items:flex-end; gap:14px; width:100%; padding:14px 20px; color:#e0edf5; background:transparent; border:0; cursor:pointer; text-align:left; }
+.gallery-trigger::before { content:''; position:absolute; inset:auto 0 0; height:48px; background:#14222c; z-index:-1; }
+.gallery-title { flex:1; font-size:13px; }
+.gallery-number { font:11px monospace; color:#93b6ca; }
+.orbit-details { position:relative; max-width:720px; margin:0 auto; text-align:center; min-height:250px; }
+#projects .orbit-details .project-content { padding:0; background:transparent; }
+#projects .orbit-details .project-content[hidden] { display:none !important; }
+#projects .orbit-details h3 { font-size:clamp(1.4rem,3vw,2rem); margin-bottom:14px; }
+#projects .orbit-details p { color:#a8bac6; font-size:.95rem; line-height:1.75; }
+#projects .orbit-details .project-status { font-size:10px; letter-spacing:.13em; color:#97bdcf; }
+#projects .orbit-details .project-tags,#projects .orbit-details .project-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:16px 0; }
+#projects .orbit-details .project-actions a { font-size:12px; padding:12px 18px; }
+.gallery-index { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin:24px auto 0; max-width:1000px; }
+.gallery-index button { border:1px solid #304856; background:transparent; padding:10px 13px; color:#91aaba; border-radius:30px; font-size:11px; cursor:pointer; }
+.gallery-index button[aria-pressed=true] { background:#c2dce9; color:#10202a; border-color:#c2dce9; }
+.gallery-index button:focus-visible,.gallery-trigger:focus-visible,.gallery-controls button:focus-visible { outline:2px solid #d0eaff; outline-offset:-4px; }
+@media(max-width:768px) {
+ .gallery-toolbar { align-items:flex-end; }
+ .gallery-toolbar p { max-width:200px; font-size:1rem; }
+ .gallery-eyebrow { font-size:8px; }
+ .gallery-count { display:none; }
+ .gallery-controls { gap:6px; }
+ .gallery-controls button { width:36px; height:36px; }
+ #projects .projects-grid.project-gallery { height:310px; }
+ #projects .project-gallery .project-card { width:76%; height:240px; top:24px; }
+ #projects .project-gallery [data-position="-1"] { transform:translateX(-105%) translateY(20px) rotateY(32deg) scale(.74); }
+ #projects .project-gallery [data-position="1"] { transform:translateX(5%) translateY(20px) rotateY(-32deg) scale(.74); }
+ #projects .project-gallery [data-position="-2"] { transform:translateX(-125%) translateY(35px) rotateY(40deg) scale(.5); }
+ #projects .project-gallery [data-position="2"] { transform:translateX(25%) translateY(35px) rotateY(-40deg) scale(.5); }
+ .gallery-trigger { padding:14px 12px; gap:10px; }
+ .gallery-title { font-size:11px; }
+ .orbit-details { min-height:310px; }
+ .gallery-index { gap:6px; margin-top:12px; }
+ .gallery-index button { font-size:10px; padding:10px; }
+}
+@media(prefers-reduced-motion:reduce) { #projects .project-gallery .project-card { transition:none; } }
+.project-gallery, .project-gallery .gallery-trigger { cursor:pointer; user-select:none; -webkit-user-select:none; }
+.project-gallery.is-dragging, .project-gallery.is-dragging .gallery-trigger { cursor:grabbing; }
+.project-gallery:focus-visible { outline:2px solid #98bfd4; outline-offset:4px; border-radius:18px; }

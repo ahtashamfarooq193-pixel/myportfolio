@@ -142,6 +142,12 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:image:alt" content="Ahtasham Farooq — Web, Flutter and WordPress Developer">
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+    <link rel="stylesheet" href="hero-video.css">
+    <link rel="stylesheet" href="project-gallery.css">
+    <link rel="stylesheet" href="electric-effects.css">
+    <link rel="stylesheet" href="contact-editor.css">
+    <link rel="stylesheet" href="floating-header.css">
+    <link rel="stylesheet" href="section-spacing.css">
 </head>
 
 <body>
@@ -155,7 +161,7 @@
     <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"
             aria-hidden="true"></i></a>
 
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
         <div class="logo">
             <a href="#home">
                 <img width="256" height="256" src="public/new_logo.png" alt="" class="nav-logo">
@@ -173,8 +179,8 @@
             <li><a href="#about" class="nav-link" data-section="about">About</a></li>
             <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
             <li><a href="#services" class="nav-link" data-section="services">Services</a></li>
-            <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
-            <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            <li><a href="#projects" class="nav-link" data-section="projects">Work</a></li>
+            <li><a href="#contact" class="nav-link nav-talk" data-section="contact">Let&#39;s Talk <span aria-hidden="true">&#8599;</span></a></li>
         </ul>
     </nav>
 
@@ -185,17 +191,19 @@
             <div class="hero-text">
                 <p class="hero-kicker"><span></span> AVAILABLE FOR SELECT PROJECTS</p><h1>Ahtasham<br><span>Farooq.</span></h1>
                 <p class="subtitle">Software Engineer & Developer</p>
-                <p class="tagline">I build responsive websites and Flutter mobile apps for startups and businesses,
-                    working remotely with clients across the USA, UK, Australia and worldwide.</p>
+                <p class="tagline">I build thoughtful websites and Flutter apps for startups and businesses.
+                    Based in Pakistan. Working worldwide.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="cta-button">View My Work</a>
                     <a href="#contact" class="cta-button cta-button-outline">Get In Touch</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-side-image-container"><div class="portrait-label">THE DEVELOPER / 01</div>
-                    <img width="833" height="1308" src="public/shamii-ch.webp" alt="Ahtasham Farooq, software engineer and developer" class="hero-side-image" loading="eager" fetchpriority="high"><div class="portrait-caption"><span>Based in Pakistan<br><strong>Building for the world.</strong></span><a href="#contact" aria-label="Discuss a project">&#8599;</a></div>
+            <div class="hero-image hero-character">
+                <div class="hero-stage" aria-hidden="true">
+                    <img class="hero-poster" src="public/hero-poster.png" alt="" width="1280" height="720" fetchpriority="high">
+                    <video class="hero-entry" data-src="public/hero-entry.mp4" muted playsinline preload="none" disablepictureinpicture></video>
                 </div>
+                <button class="hero-character-hit" type="button" aria-label="Pause character animation"></button>
             </div>
         </div>
     </section>
@@ -205,6 +213,7 @@
         <p class="section-subtitle">Get to know me better</p>
 
         <div class="about-content">
+
             <div class="about-text">
                 <h3>Ahtasham Farooq — Software Engineer &amp; Full Stack Developer</h3>
                 <p>Ahtasham Farooq is a software engineer and full stack developer based in Bahawalpur, Pakistan. He builds responsive web applications, Flutter mobile apps and custom WordPress websites for businesses and remote clients worldwide.</p>
@@ -539,29 +548,33 @@
                 </div>
             </div>
 
-            <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/mreberwn" method="POST">
-                <div class="form-group">
+            <form class="contact-form contact-editor reveal" id="contactForm" action="https://formspree.io/f/mreberwn" method="POST">
+                <div class="brief-heading"><span class="brief-eyebrow"><span aria-hidden="true"></span> OPEN FOR COLLABORATION</span><div class="brief-title-row"><h3>Your next big idea.<br><em>Starts here.</em></h3><span class="brief-symbol" aria-hidden="true">&#8599;</span></div><p>Tell me what you have in mind. Let's make it happen.</p></div><div class="editor-body">
+                <div class="form-group" data-line="01">
                     <label for="name">Full Name <span class="required">*</span></label>
                     <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your full name">
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-line="02">
                     <label for="email">Email Address <span class="required">*</span></label>
                     <input type="email" id="email" name="email" autocomplete="email" required placeholder="your.email@example.com">
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-line="03">
                     <label for="subject">Subject <span class="required">*</span></label>
                     <input type="text" id="subject" name="subject" required placeholder="What's this about?">
                 </div>
-                <div class="form-group">
+                <div class="form-group" data-line="04">
                     <label for="message">Message <span class="required">*</span></label>
                     <textarea id="message" name="message" rows="5" required
                         placeholder="Tell me about your project..."></textarea>
                 </div>
+                </div>
+                <div class="editor-terminal"><p class="brief-note">A conversation is where great projects begin.</p>
                 <div class="form-message" id="formMessage" role="status" aria-live="polite"></div>
                 <button type="submit" class="submit-btn" id="submitBtn">
-                    <span class="btn-text">Send Message</span>
+                    <span class="btn-text">Send Message</span> <span class="send-code" aria-hidden="true">&#8599;</span>
                 </button>
-            </form>
+                            </div>
+</form>
         </div>
     </section>
 
@@ -584,38 +597,6 @@
         (function () {
             const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-            // --- Cursor glow: one element, moved on rAF ---
-
-            function initPointerEffects() {
-                if (!finePointer || prefersReduced) return;
-
-                var glow = document.createElement('div');
-                glow.className = 'cursor-glow';
-                glow.setAttribute('aria-hidden', 'true');
-                document.body.appendChild(glow);
-
-                var mx = 0, my = 0, queued = false;
-
-                function paint() {
-                    queued = false;
-                    glow.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
-
-                }
-
-                document.addEventListener('mousemove', function (e) {
-                    mx = e.clientX; my = e.clientY;
-                    glow.classList.add('is-active');
-                    // coalesce every move in a frame into a single write
-                    if (!queued) { queued = true; requestAnimationFrame(paint); }
-                }, { passive: true });
-
-                document.addEventListener('mouseleave', function () {
-                    glow.classList.remove('is-active');
-                });
-            }
-
-            initPointerEffects();
 
             // --- Scroll spy + navbar + back-to-top, all on one rAF'd listener ---
             const sections = document.querySelectorAll('section[id]');
@@ -791,9 +772,11 @@
 
         })();
     </script>
-    <script src="cursor.js" defer></script>
     <script src="background.js" defer></script>
 <script src="service-page.js" defer></script>
+    <script src="hero-video.js" async></script>
+    <script src="project-gallery.js" async></script>
+    <script src="contact-workspace.js" defer></script>
 </body>
 
 </html>

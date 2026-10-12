@@ -2449,9 +2449,9 @@ nav, nav.scrolled {
     transform: translate(-50%,-50%); border: 1px solid rgba(175,214,237,.65);
     border-radius: 50%; background: rgba(144,197,227,.035);
     box-shadow: 0 0 0 1px rgba(8,18,28,.2);
-    transition: width .25s ease, height .25s ease, background .25s ease, border-color .25s ease;
+    transition: width .12s ease, height .12s ease, background .12s ease, border-color .12s ease;
 }
-.pointer-ring.over-link::after { width: 48px; height: 48px; background: rgba(160,215,244,.12); border-color: #c7e7fa; }
+.pointer-ring.over-link::after { width: 38px; height: 38px; background: rgba(160,215,244,.08); border-color: #c7e7fa; }
 .pointer-ring.pressed::after { width: 23px; height: 23px; background: rgba(160,215,244,.24); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     html.custom-pointer, html.custom-pointer * { cursor: none !important; }

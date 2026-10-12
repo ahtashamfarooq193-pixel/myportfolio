@@ -1,0 +1,20 @@
+/* A thin travelling electrical highlight, kept outside the readable surface. */
+@property --electric-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes electric-orbit { to { --electric-angle: 360deg; } }
+.cta-button, #skills .tech-badge { position:relative; isolation:isolate; }
+.cta-button::after, #skills .tech-badge::after {
+ content:''; display:block; position:absolute; inset:0; width:auto; height:auto; border-radius:inherit; padding:1.5px;
+ background:conic-gradient(from var(--electric-angle),transparent 0deg 235deg,#287dff 270deg,#54dcff 298deg,#ecfdff 310deg,transparent 335deg);
+ -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+ -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:2;
+ animation:electric-orbit 4s linear infinite; opacity:.52; transition:opacity .2s;
+}
+#skills .tech-badge:nth-child(2n)::after { animation-delay:-2s; }
+#skills .tech-badge:nth-child(3n)::after { animation-delay:-4s; }
+.cta-button:hover, .cta-button:focus-visible, #skills .tech-badge:hover {
+ border-color:#548696; box-shadow:0 0 8px #43cbff38,0 0 20px #287dff24,inset 0 0 10px #43cbff08;
+}
+.cta-button:hover::after, .cta-button:focus-visible::after, #skills .tech-badge:hover::after { opacity:.78; }
+@media(prefers-reduced-motion:reduce) {
+ .cta-button::after, #skills .tech-badge::after { animation:none; --electric-angle:45deg; }
+}

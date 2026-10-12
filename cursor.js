@@ -10,12 +10,11 @@
     document.body.append(dot, ring);
     let x = 0, y = 0, rx = 0, ry = 0, frame = 0, visible = false;
     function draw() {
-        rx += (x - rx) * .2;
-        ry += (y - ry) * .2;
+        rx = x;
+        ry = y;
         dot.style.transform = `translate3d(${x}px,${y}px,0)`;
         ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
-        if (Math.abs(x-rx) + Math.abs(y-ry) > .1) frame = requestAnimationFrame(draw);
-        else frame = 0;
+        frame = 0;
     }
     function hide() {
         visible = false;

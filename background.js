@@ -44,8 +44,10 @@
   });
   for(const r of ripples){const age=time-r.start;ctx.strokeStyle=`rgba(156,214,234,${.16*(1-age/1.6)})`;ctx.lineWidth=.7;ctx.beginPath();ctx.arc(r.x,r.y,age*210,0,Math.PI*2);ctx.stroke();}
  }
- function tick(now){frame=0;if(document.hidden||reduced.matches)return;const dt=now-last;if(dt>=32){time+=Math.min(dt,64)/1000;last=now;draw();}frame=requestAnimationFrame(tick);}
- function sync(){cancelAnimationFrame(frame);frame=0;last=performance.now();if(reduced.matches){ripples=[];offset.x=offset.y=0;}draw();if(!document.hidden&&!reduced.matches)frame=requestAnimationFrame(tick);}
+ let scrolling=false, scrollTimer;
+ function tick(now){frame=0;if(document.hidden||reduced.matches||scrolling)return;const dt=now-last;if(dt>=32){time+=Math.min(dt,64)/1000;last=now;draw();}frame=requestAnimationFrame(tick);}
+ function sync(){cancelAnimationFrame(frame);frame=0;last=performance.now();if(reduced.matches){ripples=[];offset.x=offset.y=0;}draw();if(!document.hidden&&!reduced.matches&&!scrolling)frame=requestAnimationFrame(tick);}
+ addEventListener('scroll',()=>{scrolling=true;cancelAnimationFrame(frame);frame=0;clearTimeout(scrollTimer);scrollTimer=setTimeout(()=>{scrolling=false;sync();},140);},{passive:true});
  addEventListener('resize',resize,{passive:true});
  addEventListener('pointermove',e=>{if(e.pointerType==='mouse'&&!reduced.matches){mouse.x=e.clientX;mouse.y=e.clientY;}},{passive:true});
  addEventListener('pointerdown',e=>{if(reduced.matches||e.pointerType!=='mouse'||e.button!==0||e.target.closest('a,button,input,textarea,select,summary'))return;ripples.push({x:e.clientX,y:e.clientY,start:time});if(ripples.length>3)ripples.shift();},{passive:true});

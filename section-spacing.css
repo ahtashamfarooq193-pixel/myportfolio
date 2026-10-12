@@ -1,0 +1,15 @@
+/* Homepage section rhythm; hero and about keep their original spacing. */
+#main-content > :is(#skills,#services,#projects,#faq,#contact) { padding-top:44px; padding-bottom:44px; }
+#main-content > :is(#skills,#services,#projects,#faq,#contact) .section-title { margin-bottom:12px; }
+#main-content > :is(#skills,#services,#projects,#faq,#contact) .section-subtitle { margin-bottom:30px; }
+#services .service-grid { margin-top:0; }
+#skills .skills-grid { margin-bottom:28px; }
+#skills .tech-stack { margin-top:28px; }
+#projects .projects-more { margin-top:28px; }
+@media(max-width:768px) {
+ #main-content > :is(#skills,#services,#projects,#faq,#contact) { padding-top:30px; padding-bottom:30px; }
+ #main-content > :is(#skills,#services,#projects,#faq,#contact) .section-subtitle { margin-bottom:24px; }
+ #skills .skills-grid { margin-bottom:22px; }
+ #skills .tech-stack { margin-top:22px; }
+ #projects .projects-more { margin-top:22px; }
+}
