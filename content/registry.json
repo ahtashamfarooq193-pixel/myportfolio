@@ -1,0 +1,76 @@
+{
+  "updated": "2026-10-27",
+  "language": "en",
+  "audience": "International small-business owners",
+  "articles": [
+    {
+      "id": "wordpress-vs-custom",
+      "title": "WordPress vs Custom Website for a Small Business",
+      "status": "implemented_local",
+      "file": "drafts/wordpress-vs-custom-website.md",
+      "planned_url": "/insights/wordpress-vs-custom-website/",
+      "focus_keyword": "wordpress vs custom website for small business",
+      "intent": "Compare options before commissioning a website",
+      "volume": null,
+      "volume_status": "Not verified; no country-specific keyword-tool data available",
+      "existing_links": [
+        "/wordpress-development.html",
+        "/web-development.html",
+        "/index.html#contact"
+      ],
+      "future_links": [
+        {
+          "id": "website-cost",
+          "context": "First-year and ongoing cost comparison"
+        },
+        {
+          "id": "wordpress-speed",
+          "context": "Performance and image optimization"
+        },
+        {
+          "id": "developer-brief",
+          "context": "Preparing a project brief"
+        }
+      ],
+      "images": [
+        "Generated comparison cover ready: 1200x632 WebP",
+        "Decision diagram: planned, not created"
+      ],
+      "published_at": null,
+      "cover_image": "/public/insights/wordpress-vs-custom-website.webp",
+      "page_file": "insights/wordpress-vs-custom-website/index.html"
+    },
+    {
+      "id": "website-cost",
+      "title": "Small Business Website Costs: What to Include in Your Budget",
+      "status": "idea",
+      "focus_keyword": "small business website cost",
+      "volume": null,
+      "related": [
+        "wordpress-vs-custom",
+        "developer-brief"
+      ]
+    },
+    {
+      "id": "wordpress-speed",
+      "title": "Why Is My WordPress Website Slow? A Practical Diagnostic Guide",
+      "status": "idea",
+      "focus_keyword": "why is my wordpress website slow",
+      "volume": null,
+      "related": [
+        "wordpress-vs-custom"
+      ]
+    },
+    {
+      "id": "developer-brief",
+      "title": "What to Prepare Before Hiring a Remote Web Developer",
+      "status": "idea",
+      "focus_keyword": "hiring a remote web developer",
+      "volume": null,
+      "related": [
+        "wordpress-vs-custom",
+        "website-cost"
+      ]
+    }
+  ]
+}
