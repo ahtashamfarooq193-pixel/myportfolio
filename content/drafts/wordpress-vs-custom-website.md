@@ -2,7 +2,7 @@
 status: draft
 language: en
 author: Ahtasham Farooq
-meta_title: "WordPress vs Custom Website: Small Business Guide"
+meta_title: "WordPress vs Custom Website for Small Business"
 meta_description: "Compare WordPress and custom websites for your small business. Explore costs, maintenance, SEO and flexibility to choose what fits your goals."
 planned_slug: /insights/wordpress-vs-custom-website/
 focus_keyword: wordpress vs custom website for small business

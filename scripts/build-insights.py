@@ -42,7 +42,7 @@ footer=re.search(r'<footer\b[\s\S]*?</footer>',home).group()
 if 'href="insights/index.html"' not in footer:footer=footer.replace('<h3>Explore</h3>','<h3>Explore</h3><a href="insights/index.html">Insights</a>')
 def footer_at(prefix):return re.sub(r'href="(?!https?:|mailto:|tel:|#)([^"]+)"',lambda m:'href="'+prefix+m[1]+'"',footer)
 image='public/insights/wordpress-vs-custom-website.webp'
-title='WordPress vs Custom Website: Small Business Guide'
+title='WordPress vs Custom Website for Small Business'
 desc='Compare WordPress and custom websites for your small business. Explore costs, maintenance, SEO and flexibility to choose what fits your goals.'
 headline='WordPress vs Custom Website for a Small Business'
 def shell(title,desc,url,content,prefix,schema):
