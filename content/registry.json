@@ -6,7 +6,7 @@
     {
       "id": "wordpress-vs-custom",
       "title": "WordPress vs Custom Website for a Small Business",
-      "status": "implemented_local",
+      "status": "published",
       "file": "drafts/wordpress-vs-custom-website.md",
       "planned_url": "/insights/wordpress-vs-custom-website/",
       "focus_keyword": "wordpress vs custom website for small business",
@@ -36,7 +36,7 @@
         "Generated comparison cover ready: 1200x632 WebP",
         "Decision diagram: planned, not created"
       ],
-      "published_at": null,
+      "published_at": "2026-10-27",
       "cover_image": "/public/insights/wordpress-vs-custom-website.webp",
       "page_file": "insights/wordpress-vs-custom-website/index.html"
     },
